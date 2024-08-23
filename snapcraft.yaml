@@ -1,6 +1,6 @@
 name: only-the-essentials
 base: core22
-version: '0.6'
+version: '0.7'
 summary: The snap that installs most used apps/snaps
 description: |
   This snap is for everyone! You can install every app you need! Whenever
