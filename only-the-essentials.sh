@@ -83,6 +83,7 @@ distros=(
 # Define color variables
 RED='\033[0;31m'
 BLUE='\033[0;34m'
+GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 # Use the colors
@@ -93,7 +94,7 @@ echo -e "${BLUE}This text is blue!${NC}"
 continueshi() {
     echo "This snap will need root privileges"
     echo "The red means only for Debian OS, Blue for every Linux Distro"
-    echo -e "What would you use your OS for?\n${RED}1. Development/Programming\n${BLUE}2. Photo Editing\n${RED}3. Gaming\n${BLUE}4. 3D Modeling\n${NC}5. Any other ideas for apps?"
+    echo -e "What would you use your OS for?\n${RED}1. Development/Programming\n${BLUE}2. Photo Editing\n${RED}3. Gaming\n${BLUE}4. 3D Modeling\n${NC}5. ${GREEN}Feedback?"
     read -p "Please enter your choice (1-5): " choose
 
     case "$choose" in
@@ -120,8 +121,8 @@ continueshi() {
             ;;
         5)
             echo "You chose Feedback."
-            echo "For feedback, you can check out the snap details or contact us at https://iliantsonev.wordpress.com"
-            snap info only-the-essentials
+            echo "For feedback, you can check out the command 'snap info only-the-essentials' and open the website!"
+            echo "For more fast feedback, my discord account is .memelian4 with the dot"
             ;;
         *)
             echo "Invalid choice. Please select a number between 1 and 5."
