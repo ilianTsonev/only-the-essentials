@@ -15,7 +15,10 @@ parts:
     source: .
     organize:
       only-the-essentials.sh: bin/only-the-essentials
+    stage-packages: []  # Add any necessary packages here if needed
 
 apps:
   only-the-essentials:
     command: bin/only-the-essentials
+    plugs:
+      - network  # Example plug; add more as needed
