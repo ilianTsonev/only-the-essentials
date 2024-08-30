@@ -13,6 +13,8 @@ parts:
   only-the-essentials:
     plugin: dump
     source: .
+    build:
+      - chmod 755 $SNAPCRAFT_PART_INSTALL/bin/only-the-essentials
     organize:
       only-the-essentials.sh: bin/only-the-essentials
 
