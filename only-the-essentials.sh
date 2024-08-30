@@ -1,5 +1,3 @@
-#!/bin/bash
-
 echo "Hello $(id -un), What would you like to use Your Debian distro for?"
 
 # List of Linux distributions
@@ -101,7 +99,7 @@ continueshi() {
         1)
             echo "You chose Development/Programming."
             echo "You should manually install code using 'snap install code --classic'"
-            echo "You should manually install vim, git, docker using 'apt install vim git docker'"
+            echo "You should manually install vim (form CLI Programming), git (for github usage like downloading source code), docker using 'apt install selected-packs'"
             ;;
         2)
             echo "You chose Photo Editing."
@@ -112,11 +110,11 @@ continueshi() {
         3)
             echo "You chose Gaming."
             echo "You should manually install Steam, Proton, Lutris, and Wine using 'apt install steam proton lutris wine'"
+            echo "you can search for some cool KDE and GNOME games which are very cool" # the ^ shall make the text little. as if ** would make the text bold
             ;;
         4)
             echo "You chose 3D Modeling."
-            echo "Downloading Blender..."
-            wget 'https://www.blender.org/download/release/Blender4.2/blender-4.2.1-linux-x64.tar.xz'
+            echo "To download Blender, you can go to their website and install the AppImage"
             echo "You should manually install FreeCAD using 'snap install freecad'"
             ;;
         5)
