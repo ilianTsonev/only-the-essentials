@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "Hello $(id -un), What would you like to use Your Debian distro for?"
 
 # List of Linux distributions
