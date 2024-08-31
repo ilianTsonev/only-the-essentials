@@ -15,8 +15,6 @@ parts:
     source: .
     override-build: |
       craftctl default
-      # Apply correct permissions
-      chmod 755 $SNAPCRAFT_PART_INSTALL/bin/only-the-essentials
     organize:
       only-the-essentials.sh: bin/only-the-essentials
 
