@@ -14,10 +14,9 @@ parts:
     plugin: dump
     source: .
     override-build: |
+      craftctl default
       # Apply correct permissions
       chmod 755 $SNAPCRAFT_PART_INSTALL/bin/only-the-essentials
-      # Run the default build steps
-      snapcraftctl build
     organize:
       only-the-essentials.sh: bin/only-the-essentials
 
