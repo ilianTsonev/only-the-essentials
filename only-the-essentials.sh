@@ -99,225 +99,187 @@ continueshi() {
     read -p "Please enter your choice (1-23): " choose
 
     case "$choose" in
-        1)
-            echo "You chose Development/Programming."
-            echo "Consider installing the following tools:"
-            echo "- Visual Studio Code: 'snap install code --classic'"
-            echo "- Vim (CLI Editor), Git (Version Control), Docker: 'apt install vim git docker.io'"
-            ;;
-        2)
-            echo "You chose Photo Editing."
-            echo "You can open Photopea in your browser."
-            echo "Additionally, you may install GIMP: 'snap install gimp'"
-            ;;
-        3)
-            echo "You chose Gaming."
-            echo "Recommended installations:"
-            echo "- Steam, Proton, Lutris, Wine: 'apt install steam proton lutris wine'"
-            echo "- Explore KDE and GNOME games!"
-            ;;
-        4)
-            echo "You chose 3D Modeling."
-            echo "Blender is available at their website as an AppImage."
-            echo "You can also install FreeCAD: 'snap install freecad'"
-            ;;
-        5)
-            echo "You chose Feedback."
-            echo "Check out 'snap info only-the-essentials' for more information."
-            echo "Quick feedback? Contact me on Discord at .memelian4"
-            echo "Want the FASTEST contact? E-mail me on this mail: Ilian.iliev.tsonev@gmail.com"
-            ;;
-        6)
-            echo "You chose Advanced Options."
-            echo -e "${YELLOW}Here are some additional advanced operations you can perform:${NC}"
-            echo "1. System Update: Update your entire system with 'sudo apt update && sudo apt upgrade'."
-            echo "2. Clean Up: Free up space with 'sudo apt autoremove && sudo apt autoclean'."
-            echo "3. Install Essential Tools: 'apt install build-essential curl wget net-tools'"
-            echo "4. Check System Logs: 'journalctl -p 3 -xb' (shows only errors)"
-            ;;
-        7)
-            echo "Exiting. Have a great day!"
-            exit 0
-            ;;
-        8)
-            echo -e "${GREEN}You had found an easter egg!"
-            ;;
-        9) # System Information Section
-            echo -e "${CYAN}Fetching System Information...${NC}"
-            echo -e "CPU Info:"
-            lscpu | grep 'Model name'
-            echo -e "Memory Info:"
-            free -h | grep 'Mem:'
-            echo -e "Disk Usage:"
-            df -h --total | grep 'total'
-            echo -e "Uptime:"
-            uptime -p
-            ;;
-        10) # Network Diagnostics Section
-            echo -e "${BLUE}Network Information:${NC}"
-            echo "Current IP Address:"
-            ip addr show | grep 'inet ' | awk '{print $2}' | grep -v '127.0.0.1'
-            echo "Public IP Address:"
-            curl -s ifconfig.me
-            echo -e "DNS Servers:"
-            systemd-resolve --status | grep 'DNS Servers' -A 2
-            echo -e "${YELLOW}Do you want to perform a ping test to Google? (y/n):${NC}"
-            read -r ping_test
-            if [[ "$ping_test" == "y" ]]; then
-                ping -c 4 google.com
-            fi
-            ;;
-        11) # Package Management Helper
-            echo -e "${GREEN}Would you like to manage packages? (y/n):${NC}"
-            read -r pkg_mgmt
-            if [[ "$pkg_mgmt" == "y" ]]; then
-                echo -e "${YELLOW}Choose your package manager:${NC}"
-                echo "1. APT (for Debian/Ubuntu based)"
-                echo "2. Snap"
-                echo "3. Flatpak"
-                read -p "Enter choice (1-3): " pkg_choice
-                case $pkg_choice in
-                    1)
-                        echo "You chose APT. Let's update and install packages!"
-                        sudo apt update && sudo apt upgrade
-                        read -p "Enter the package name to install: " pkg_name
-                        sudo apt install "$pkg_name"
-                        ;;
-                    2)
-                        echo "You chose Snap. Let's install packages!"
-                        read -p "Enter the snap package name to install: " snap_name
-                        sudo snap install "$snap_name"
-                        ;;
-                    3)
-                        echo "You chose Flatpak. Let's install packages!"
-                        read -p "Enter the flatpak package name to install: " flatpak_name
-                        sudo flatpak install "$flatpak_name"
-                        ;;
-                    *)
-                        echo -e "${RED}Invalid choice!${NC}"
-                        ;;
-                esac
-            fi
-            ;;
-        12) # Backup and Restore Section
-            echo -e "${CYAN}Would you like to backup your important files or configurations? (y/n):${NC}"
-            read -r backup_choice
-            if [[ "$backup_choice" == "y" ]]; then
-                echo -e "${GREEN}Select an option:${NC}"
-                echo "1. Backup home directory"
-                echo "2. Backup system configurations"
-                echo "3. Restore previous backup"
-                read -p "Choose an option (1-3): " backup_option
-                case "$backup_option" in
-                    1)
-                        echo "Backing up home directory to ~/backup_home.tar.gz"
-                        tar -czvf ~/backup_home.tar.gz ~/
-                        ;;
-                    2)
-                        echo "Backing up system configuration files to ~/backup_configs.tar.gz"
-                        sudo tar -czvf ~/backup_configs.tar.gz /etc/
-                        ;;
-                    3)
-                        echo "Restoring backup from ~/backup_home.tar.gz"
-                        tar -xzvf ~/backup_home.tar.gz -C ~/
-                        ;;
-                    *)
-                        echo -e "${RED}Invalid choice!${NC}"
-                        ;;
-                esac
-            fi
-            ;;
-            13) # Web Development Environment
-    echo "You chose Web Development."
-    echo "Setting up a basic web development environment with Node.js, Nginx, and MySQL."
-    read -p "Do you want to install a full stack (Node.js, Nginx, MySQL, PHP)? (y/n): " full_stack
-    if [[ "$full_stack" == "y" ]]; then
-        echo "Installing Node.js, Nginx, MySQL, and PHP..."
-        sudo apt install -y nodejs npm nginx mysql-server php-fpm
-        echo "Installation complete!"
-    else
+    1)
+        echo "You chose Development/Programming."
+        echo "Consider installing the following tools:"
+        echo "- Visual Studio Code: 'if you want to install Visual Studio Code, use snap install code --classic'"
+        echo "- Vim (CLI Editor), Git (Version Control), Docker: 'if you want to install Vim, Git, and Docker, use apt install vim git docker.io'"
+        ;;
+    2)
+        echo "You chose Photo Editing."
+        echo "You can open Photopea in your browser."
+        echo "Additionally, you may install GIMP: 'if you want to install GIMP, use snap install gimp'"
+        ;;
+    3)
+        echo "You chose Gaming."
+        echo "Recommended installations:"
+        echo "- Steam, Proton, Lutris, Wine: 'if you want to install Steam, Proton, Lutris, and Wine, use apt install steam proton lutris wine'"
+        echo "- Explore KDE and GNOME games!"
+        ;;
+    4)
+        echo "You chose 3D Modeling."
+        echo "Blender is available at their website as an AppImage."
+        echo "You can also install FreeCAD: 'if you want to install FreeCAD, use snap install freecad'"
+        ;;
+    5)
+        echo "You chose Feedback."
+        echo "Check out 'snap info only-the-essentials' for more information."
+        echo "Quick feedback? Contact me on Discord at .memelian4"
+        echo "Want the FASTEST contact? E-mail me at Ilian.iliev.tsonev@gmail.com"
+        ;;
+    6)
+        echo "You chose Advanced Options."
+        echo -e "${YELLOW}Here are some additional advanced operations you can perform:${NC}"
+        echo "1. System Update: 'if you want to update your entire system, use sudo apt update && sudo apt upgrade'"
+        echo "2. Clean Up: 'if you want to free up space, use sudo apt autoremove && sudo apt autoclean'"
+        echo "3. Install Essential Tools: 'if you want to install essential tools, use apt install build-essential curl wget net-tools'"
+        echo "4. Check System Logs: 'if you want to check system logs for errors, use journalctl -p 3 -xb'"
+        ;;
+    7)
+        echo "Exiting. Have a great day!"
+        exit 0
+        ;;
+    8)
+        echo -e "${GREEN}You had found an easter egg!${NC}"
+        ;;
+    9) # System Information Section
+        echo -e "${CYAN}Fetching System Information...${NC}"
+        echo -e "CPU Info:"
+        echo "Use 'lscpu | grep \"Model name\"' to get CPU information."
+        echo -e "Memory Info:"
+        echo "Use 'free -h | grep \"Mem:\"' to get memory information."
+        echo -e "Disk Usage:"
+        echo "Use 'df -h --total | grep \"total\"' to check disk usage."
+        echo -e "Uptime:"
+        echo "Use 'uptime -p' to check system uptime."
+        ;;
+    10) # Network Diagnostics Section
+        echo -e "${BLUE}Network Information:${NC}"
+        echo "Current IP Address:"
+        echo "Use 'ip addr show | grep \"inet \" | awk \'{print \$2}\' | grep -v \"127.0.0.1\"' to get your current IP address."
+        echo "Public IP Address:"
+        echo "Use 'curl -s ifconfig.me' to get your public IP address."
+        echo -e "DNS Servers:"
+        echo "Use 'systemd-resolve --status | grep \"DNS Servers\" -A 2' to view DNS servers."
+        echo -e "${YELLOW}Do you want to perform a ping test to Google? (y/n):${NC}"
+        read -r ping_test
+        if [[ "$ping_test" == "y" ]]; then
+            echo "Use 'ping -c 4 google.com' to perform a ping test."
+        fi
+        ;;
+    11) # Package Management Helper
+        echo -e "${GREEN}Would you like to manage packages? (y/n):${NC}"
+        read -r pkg_mgmt
+        if [[ "$pkg_mgmt" == "y" ]]; then
+            echo -e "${YELLOW}Choose your package manager:${NC}"
+            echo "1. APT (for Debian/Ubuntu based)"
+            echo "2. Snap"
+            echo "3. Flatpak"
+            read -p "Enter choice (1-3): " pkg_choice
+            case $pkg_choice in
+                1)
+                    echo "You chose APT. To update and install packages, use 'sudo apt update && sudo apt upgrade'."
+                    echo "Enter the package name to install:"
+                    read -r pkg_name
+                    echo "To install $pkg_name, use 'sudo apt install $pkg_name'."
+                    ;;
+                2)
+                    echo "You chose Snap. To install packages, use 'sudo snap install [package_name]'."
+                    echo "Enter the snap package name to install:"
+                    read -r snap_name
+                    echo "To install $snap_name, use 'sudo snap install $snap_name'."
+                    ;;
+                3)
+                    echo "You chose Flatpak. To install packages, use 'sudo flatpak install [package_name]'."
+                    echo "Enter the flatpak package name to install:"
+                    read -r flatpak_name
+                    echo "To install $flatpak_name, use 'sudo flatpak install $flatpak_name'."
+                    ;;
+                *)
+                    echo -e "${RED}Invalid choice!${NC}"
+                    ;;
+            esac
+        fi
+        ;;
+    12) # Backup and Restore Section
+        echo -e "${CYAN}Would you like to backup your important files or configurations? (y/n):${NC}"
+        read -r backup_choice
+        if [[ "$backup_choice" == "y" ]]; then
+            echo -e "${GREEN}Select an option:${NC}"
+            echo "1. Backup home directory"
+            echo "2. Backup system configurations"
+            echo "3. Restore previous backup"
+            read -p "Choose an option (1-3): " backup_option
+            case "$backup_option" in
+                1)
+                    echo "To back up the home directory, use 'tar -czvf ~/backup_home.tar.gz ~/'"
+                    ;;
+                2)
+                    echo "To back up system configuration files, use 'sudo tar -czvf ~/backup_configs.tar.gz /etc/'"
+                    ;;
+                3)
+                    echo "To restore from a backup, use 'tar -xzvf ~/backup_home.tar.gz -C ~/'"
+                    ;;
+                *)
+                    echo -e "${RED}Invalid choice!${NC}"
+                    ;;
+            esac
+        fi
+        ;;
+    13) # Web Development Environment
+        echo "You chose Web Development."
+        echo "To set up a basic web development environment with Node.js, Nginx, and MySQL:"
+        echo "Use 'sudo apt install -y nodejs npm nginx mysql-server php-fpm' for a full stack installation."
         echo "Skipping full stack installation."
-    fi
-    ;;  
-        14) # System Health Check
-            echo -e "${CYAN}System Health Check:${NC}"
-            echo "Checking CPU Temperature:"
-            sensors | grep 'Package id 0:' || echo "Sensors not available on this system."
-            echo "Top 5 processes by CPU usage:"
-            ps -eo pid,comm,%cpu --sort=-%cpu | head -6
-            ;;
-            15) # Virtualization Tools
-    echo "You chose Virtualization."
-    echo "Installing VirtualBox and KVM..."
-    sudo apt install -y virtualbox qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
-    sudo systemctl enable --now libvirtd
-    echo "VirtualBox and KVM have been installed."
-    echo "You can manage virtual machines using 'virt-manager'."
-    ;;
-16) # DevOps Tools
-    echo "You chose DevOps."
-    echo "Installing Docker, Kubernetes, and Ansible..."
-    sudo apt install -y docker.io ansible
-    echo "For Kubernetes setup, you can use Minikube or MicroK8s."
-    read -p "Do you want to install Minikube or MicroK8s? (1 for Minikube, 2 for MicroK8s): " k8s_choice
-    if [[ "$k8s_choice" == "1" ]]; then
-        curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-        sudo install minikube-linux-amd64 /usr/local/bin/minikube
-        echo "Minikube installed!"
-    elif [[ "$k8s_choice" == "2" ]]; then
-        sudo snap install microk8s --classic
-        sudo usermod -aG microk8s $USER
-        echo "MicroK8s installed!"
-    else
-        echo "Skipping Kubernetes installation."
-    fi
-    ;;
-17) # Multimedia & Video Editing Tools
-    echo "You chose Multimedia & Video Editing."
-    echo "Installing OBS Studio, Kdenlive, and FFmpeg..."
-    sudo apt install -y obs-studio kdenlive ffmpeg
-    echo "You can now start editing videos or stream using OBS Studio."
-    ;;
-18) # Security & Penetration Testing Tools
-    echo "You chose Security & Penetration Testing."
-    echo "Installing Wireshark, Nmap, and Metasploit Framework..."
-    sudo apt install -y wireshark nmap
-    curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate | sudo bash
-    echo "Tools installed! You can run 'wireshark', 'nmap', and 'msfconsole' to start using them."
-    ;;
-19) # Networking Tools
-    echo "You chose Networking Tools."
-    echo "Installing OpenVPN, WireGuard, and Netcat..."
-    sudo apt install -y openvpn wireguard netcat
-    echo "You can now configure and use OpenVPN or WireGuard for secure networking."
-    ;;
-20) # Office & Productivity Tools
-    echo "You chose Office & Productivity."
-    echo "Installing LibreOffice, Thunderbird, and Nextcloud..."
-    sudo apt install -y libreoffice thunderbird nextcloud-desktop
-    echo "You can now start using LibreOffice for documents and Thunderbird for email."
-    ;;
-21) # Audio & Music Production Tools
-    echo "You chose Audio & Music Production."
-    echo "Installing Audacity, Ardour, and LMMS..."
-    sudo apt install -y audacity ardour lmms
-    echo "You can now start producing music with these tools!"
-    ;;
-22) # Mobile App Development Tools
-    echo "You chose Mobile App Development."
-    echo "Installing Android Studio and Flutter..."
-    sudo apt install -y openjdk-11-jdk
-    sudo snap install android-studio --classic
-    sudo snap install flutter --classic
-    echo "You can now develop mobile apps using Android Studio and Flutter."
-    ;;
-23) # Advanced Gaming Tools
-    echo "You chose Advanced Gaming."
-    echo "Installing Lutris and Wine for Windows game compatibility..."
-    sudo apt install -y lutris wine
-    echo "You can now use Lutris and Wine to play Windows games on Linux."
-    ;;
-
+        ;;
+    14) # System Health Check
+        echo -e "${CYAN}System Health Check:${NC}"
+        echo "To check CPU temperature, use 'sensors | grep \"Package id 0:\"'."
+        echo "To list top 5 processes by CPU usage, use 'ps -eo pid,comm,%cpu --sort=-%cpu | head -6'."
+        ;;
+    15) # Virtualization Tools
+        echo "You chose Virtualization."
+        echo "To install VirtualBox and KVM, use 'sudo apt install -y virtualbox qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils'."
+        echo "To enable and start libvirtd, use 'sudo systemctl enable --now libvirtd'."
+        echo "Manage virtual machines using 'virt-manager'."
+        ;;
+    16) # DevOps Tools
+        echo "You chose DevOps."
+        echo "To install Docker and Ansible, use 'sudo apt install -y docker.io ansible'."
+        echo "For Kubernetes setup, use Minikube or MicroK8s."
+        echo "To install Minikube, use 'curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64' and 'sudo install minikube-linux-amd64 /usr/local/bin/minikube'."
+        echo "To install MicroK8s, use 'sudo snap install microk8s --classic' and 'sudo usermod -aG microk8s \$USER'."
+        ;;
+    17) # Multimedia & Video Editing Tools
+        echo "You chose Multimedia & Video Editing."
+        echo "To install OBS Studio, Kdenlive, and FFmpeg, use 'sudo apt install -y obs-studio kdenlive ffmpeg'."
+        echo "You can now start editing videos or stream using OBS Studio."
+        ;;
+    18) # Security & Penetration Testing Tools
+        echo "You chose Security & Penetration Testing."
+        echo "To install Wireshark, Nmap, and Metasploit Framework, use 'sudo apt install -y wireshark nmap'."
+        echo "To install Metasploit Framework, use 'curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate | sudo bash'."
+        ;;
+    19) # Networking Tools
+        echo "You chose Networking Tools."
+        echo "To install OpenVPN, WireGuard, and Netcat, use 'sudo apt install -y openvpn wireguard netcat'."
+        ;;
+    20) # Office & Productivity Tools
+        echo "You chose Office & Productivity."
+        echo "To install LibreOffice, Thunderbird, and Nextcloud, use 'sudo apt install -y libreoffice thunderbird nextcloud-desktop'."
+        ;;
+    21) # Audio & Music Production Tools
+        echo "You chose Audio & Music Production."
+        echo "To install Audacity, Ardour, and LMMS, use 'sudo apt install -y audacity ardour lmms'."
+        ;;
+    22) # Mobile App Development Tools
+        echo "You chose Mobile App Development."
+        echo "To install Android Studio and Flutter, use 'sudo apt install -y openjdk-11-jdk', 'sudo snap install android-studio --classic', and 'sudo snap install flutter --classic'."
+        ;;
+    23) # Advanced Gaming Tools
+        echo "You chose Advanced Gaming."
+        echo "To install Lutris and Wine for Windows game compatibility, use 'sudo apt install -y lutris wine'."
+        ;;
         *)
             echo "Invalid option. Please choose a number between 1 and 14."
             ;;
