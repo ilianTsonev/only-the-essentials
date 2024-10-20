@@ -63,7 +63,7 @@ echo -e "${CYAN}This text is cyan - Additional info.${NC}"
 # Advanced options function
 continueshi() {
     echo "Choose what you'd like to install:"
-    echo -e "${YELLOW}The following actions require root privileges.${NC}"
+    echo -e "${RED}The following actions does NOT require root privileges.${NC}" #whole lotta blue
     echo -e "${YELLOW}Red indicates Debian-specific actions, Blue is for general Linux distributions.${NC}"
     echo -e "${CYAN}Choose what you'd like to install:${NC}"
     echo -e "${RED}1. Development/Programming${NC}"
