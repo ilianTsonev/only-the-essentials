@@ -1,12 +1,12 @@
 name: only-the-essentials
 base: core22
-version: '1.1-UltraDestructive' 
+version: '1.3FlyingTurret' 
 summary: The snap that installs most used apps/snaps
 description: |
   This snap is for everyone! You can install every app you need! Whether
   you are a programmer, gamer, or just want to mess with multimedia.
 grade: stable
-confinement: classic #let's wish that everything is good
+confinement: strict
 contact: https://iliantsonev.wordpress.com
 
 parts:
