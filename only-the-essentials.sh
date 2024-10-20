@@ -1,11 +1,6 @@
 #!/bin/bash
 
-# Check if the script is run by root
-if [ "$EUID" -ne 0 ]; then
-  echo "This script must be run as root. Exiting..."
-  exit 1
-fi
-clear
+# no
 # Welcome message with user-specific greeting
 hour=$(date +"%H")
     if [ "$hour" -ge 5 ] && [ "$hour" -lt 12 ]; then
@@ -67,8 +62,6 @@ echo -e "${CYAN}This text is cyan - Additional info.${NC}"
 
 # Advanced options function
 continueshi() {
-    echo "The following actions require root privileges."
-    echo "Red indicates Debian-specific actions, Blue is for general Linux distributions."
     echo "Choose what you'd like to install:"
     echo -e "${YELLOW}The following actions require root privileges.${NC}"
     echo -e "${YELLOW}Red indicates Debian-specific actions, Blue is for general Linux distributions.${NC}"
@@ -281,7 +274,7 @@ continueshi() {
         echo "To install Lutris and Wine for Windows game compatibility, use 'sudo apt install -y lutris wine'."
         ;;
         *)
-            echo "Invalid option. Please choose a number between 1 and 14."
+            echo "Invalid option. Please choose a number between 1 and 23."
             ;;
     esac
 }
