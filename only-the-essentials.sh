@@ -62,8 +62,7 @@ echo -e "${CYAN}This text is cyan - Additional info.${NC}"
 
 # Advanced options function
 continueshi() {
-    echo "Choose what you'd like to install:"
-    echo -e "${RED}The following actions does NOT require root privileges.${NC}" #whole lotta blue
+    echo "Choose what you'd like to install:" #whole lotta blue
     echo -e "${YELLOW}Red indicates Debian-specific actions, Blue is for general Linux distributions.${NC}"
     echo -e "${CYAN}Choose what you'd like to install:${NC}"
     echo -e "${RED}1. Development/Programming${NC}"
@@ -250,7 +249,7 @@ continueshi() {
         ;;
     18) # Security & Penetration Testing Tools
         echo "You chose Security & Penetration Testing."
-        echo "To install Wireshark, Nmap, and Metasploit Framework, use 'sudo apt install -y wireshark nmap'."
+        echo "To install Wireshark, Nmap, and Metasploit Framework, use 'sudo apt install -y wireshark nmap' may not work roperly if not installed git or any other ."
         echo "To install Metasploit Framework, use 'curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate | sudo bash'."
         ;;
     19) # Networking Tools
@@ -274,8 +273,8 @@ continueshi() {
         echo "To install Lutris and Wine for Windows game compatibility, use 'sudo apt install -y lutris wine'."
         ;;
         *)
-            echo "Invalid option. Please choose a number between 1 and 23."
-            ;;
+        echo "Invalid option. Please choose a number between 1 and 23."
+        ;;
     esac
 }
 continueshi
