@@ -132,7 +132,7 @@ continueshi() {
         exit 0
         ;;
     8)
-        echo -e "${GREEN}You had found an easter egg!${NC}"
+        echo -e "${GREEN}You had found an easter egg! That's rarely gonna ever happen! You are lucky to find it! You might be the first person who saw it!${NC}"
         ;;
     9) # System Information Section
         echo -e "${CYAN}Fetching System Information...${NC}"
