@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/bash 
+# ^ This loads the bash which CANNOT RUN THE SCRFIPT without putting it in there
+
+# yes
 
 # no
 # Welcome message with user-specific greeting
@@ -12,7 +15,7 @@ hour=$(date +"%H")
     else
         greeting="Good Night,"
 fi
-echo "---$greeting $(id -un), Welcome to your Linux Distro!---"
+echo "---$greeting $(id -un), Welcome to your Linux Distro!---" # this is a simple greeting and depending on the date of your current Computer.
 
 # Attempt to detect the distribution using multiple methods
 if command -v lsb_release &> /dev/null; then
@@ -24,7 +27,7 @@ elif [ -f /etc/issue ]; then
 else
     distro="Unknown Distribution"
 fi
-echo "Detected Linux Distribution: $distro"
+echo "Detected Linux Distribution: $distro" # The detected Distro might not be at it's best accuracy  because every distro is putting their codename in a different place
 echo "What would you like to use your system for today?"
 
 # List of Linux distributions
@@ -86,9 +89,9 @@ continueshi() {
     echo -e "${RED}20. Office & Productivity${NC}"
     echo -e "${RED}21. Audio & Music Production${NC}"
     echo -e "${RED}22. Mobile App Development${NC}"
-    echo -e "${BLUE}23. Advanced Gaming${NC}"
+    echo -e "${BLUE}23. Advanced Gaming${NC}" 
 
-    read -p "Please enter your choice (1-23): " choose
+    read -p "Please enter your choice (1-23): " choose #the read line is here for reading the user choice, which if it is an string... god help us
 
     case "$choose" in
     1)
@@ -277,4 +280,4 @@ continueshi() {
         ;;
     esac
 }
-continueshi
+continueshi #This will pull the function, which starts the whole app itself. removing this will cause a crashout
