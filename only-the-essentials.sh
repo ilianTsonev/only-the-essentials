@@ -55,18 +55,20 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
+BOLD='\033[1m' #bold
+NB='\033[0m ' #no bold
 
 # Use the colors for various output sections
-echo -e "${RED}This text is red - Critical information!${NC}"
-echo -e "${BLUE}This text is blue - General information.${NC}"
-echo -e "${GREEN}This text is green - Success messages.${NC}"
-echo -e "${YELLOW}This text is yellow - Warnings and notices.${NC}"
-echo -e "${CYAN}This text is cyan - Additional info.${NC}"
+echo -e "${RED}Red text - Critical information!${NC}"
+echo -e "${BLUE}Blue text - General information.${NC}"
+echo -e "${GREEN}Green text - Success messages.${NC}"
+echo -e "${YELLOW}Yellow text - Warnings and notices.${NC}"
+echo -e "${CYAN}Nyan text - Additional info.${NC}" #nyan cat, people will love this
 
 # Advanced options function
 continueshi() {
     echo "Choose what you'd like to install:" #whole lotta blue
-    echo -e "${YELLOW}Red indicates Debian-specific actions, Blue is for general Linux distributions.${NC}"
+    echo -e "${YELLOW}Red indicates ${BOLD}Debian-specific${NB}actions, Blue is for ${BOLD}general Linux${NB}distributions.${NC}"
     echo -e "${CYAN}Choose what you'd like to install:${NC}"
     echo -e "${RED}1. Development/Programming${NC}"
     echo -e "${BLUE}2. Photo Editing${NC}"
@@ -275,8 +277,8 @@ continueshi() {
         echo "You chose Advanced Gaming."
         echo "To install Lutris and Wine for Windows game compatibility, use 'sudo apt install -y lutris wine'."
         ;;
-        *)
-        echo "Invalid option. Please choose a number between 1 and 23."
+    *)
+        echo "${RED}Invalid option. Please choose a number between 1 and 23.${NC}"
         ;;
     esac
 }
